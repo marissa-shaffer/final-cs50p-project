@@ -2,11 +2,11 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-#def main():
-#    index()
-#    about()
-#    projects()
-#    contact()
+def main():
+    index()
+    about()
+    projects()
+    contact()
 
 @app.route("/")
 def index():
@@ -24,5 +24,5 @@ def projects():
 def contact():
     return "The contact page."
 
-#if __name__ == "__main__":
-#    main()
+if __name__ == "__main__":
+    main()

@@ -26,5 +26,5 @@ def contact():
     return "The contact page."
 
 if __name__ == "__main__":
-    main()
+    #main()
     app.run(debug=True)

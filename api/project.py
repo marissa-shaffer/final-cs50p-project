@@ -7,6 +7,7 @@ def main():
     about()
     projects()
     contact()
+    app.run(debug=True)
 
 @app.route("/")
 def index():
@@ -26,5 +27,4 @@ def contact():
     return "The contact page."
 
 if __name__ == "__main__":
-    #main()
-    app.run(debug=True)
+    main()   

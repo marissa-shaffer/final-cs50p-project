@@ -10,7 +10,7 @@ def main():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return Flask.render_template("index.html")
 
 @app.route("/about")
 def about():

@@ -12,7 +12,6 @@ def main():
 @app.route("/")
 def index():
     return render_template("index.html")
-    #return "The home page"
 
 @app.route("/about")
 def about():

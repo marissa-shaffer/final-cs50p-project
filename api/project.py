@@ -3,14 +3,14 @@ from flask import Flask
 app = Flask(__name__)
 
 def main():
-    hello_world()
+    index()
     about()
     projects()
     contact()
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def index():
+    return "index.html"
 
 @app.route("/about")
 def about():

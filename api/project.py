@@ -20,11 +20,11 @@ def about():
 
 @app.route("/projects/")
 def projects():
-    return "The project page."
+    return render_template("projects.html")
 
 @app.route("/contact")
 def contact():
-    return "The contact page."
+    return render_template("contact.html")
 
 if __name__ == "__main__":
     main()   

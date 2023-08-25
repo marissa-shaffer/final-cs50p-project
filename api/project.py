@@ -6,7 +6,6 @@ def main():
     index()
     about()
     projects()
-    project()
     contact()
     app.run(debug=True)
 
@@ -21,10 +20,6 @@ def about():
 @app.route("/projects/")
 def projects():
     return render_template("projects.html")
-
-@app.route("projects/<project>")
-def project(projectname=None):
-    return render_template("project.html", project=projectname)
 
 @app.route("/contact", methods=("POST"))
 def contact():

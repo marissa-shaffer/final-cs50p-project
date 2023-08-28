@@ -38,7 +38,7 @@ def projects():
 def contact():
     cform = contactForm()
     if cform.validate_on_submit():
-            print(f"Name:{cform.name.data}, E-mail:{cform.email.data}, message:{cform.message.data}")
+        print(f"Name:{cform.name.data}, E-mail:{cform.email.data}, message:{cform.message.data}")
     return render_template("contact.html", form=cform)
 
 if __name__ == "__main__":

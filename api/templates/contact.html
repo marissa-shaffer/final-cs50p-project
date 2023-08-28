@@ -2,10 +2,11 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
+<div class="container">
     <br>
     <h1>{% block title %} Contact {% endblock %}</h1>
     <div class="container">
         {{ wtf.quick_form(form) }}
     </div>
-    
+</div>
 {% endblock %}

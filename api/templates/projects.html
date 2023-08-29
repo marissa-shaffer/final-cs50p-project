@@ -1,37 +1,66 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
+<div class="container">
+  <br>
+  <h1>{% block title %} Projects {% endblock %}</h1>
+  <br>
+  <div class="card-deck">
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/marissa-shaffer/final-cs50p-project/main/api/static/images/watermyplantshome.PNG" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Water My Plants</h5>
+        <p>May 2020 - Jun 2020</p>
+        <p class="card-text">Water My Plants is a React web application that allows users to set reminders to water their plants.</p>
+        <p>HTML/CSS | JavaScript | React | Redux | Styled-Components | Node.js | Express | SQLite</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Collaborated remotely with a team of 4 web developers, 1 UX/UI Designer, 2 Front-End Developers, including myself, and 1 Back-End Developer.</li>
+          <li class="list-group-item">Responsible for connecting the front-end components, connecting them to the back-end. and setting up the authorization/token in the login and registration forms.</li>
+        </ul>
         <br>
-        <h1>{% block title %} Projects {% endblock %}</h1>
-    </div>
-    <div class="card-deck">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Water My Plants</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="https://water-my-plants-6.netlify.app/">App Link</a>
-            <a href="https://github.com/water-my-plants-6/front-end">Github</a>
-           </div>
-        </div>
-        <div class="card">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Water My Plant 2020</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <a href="https://front-end-ivory-six.vercel.app/">App Link</a>
-            <a href="https://github.com/Water-My-Plant-2020/Back-End">Github</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Anywhere Fitness</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <a href="https://anywhere-fitness-frontend-tt86.netlify.app/">App Link</a>
-            <a href="https://github.com/Anywherefitnesstt86/back-end">Github</a>
-        </div>
-        </div>
+        <a href="https://water-my-plants-6.netlify.app/" class="card-link">Water My Plants &nbsp;&nbsp;</a>
+        <a href="https://github.com/water-my-plants-6/front-end" class="card-link">Github</a>
       </div>
+    </div>
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/marissa-shaffer/final-cs50p-project/main/api/static/images/watermyplants2020home.PNG" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Water My Plants 2020</h5>
+        <p class="card-subtitle">Nov 2020</p>
+        <p class="card-text">Water My Plants is a React web application that allows users to set reminders to water their plants.</p>
+        <p class="card-text">React | Redux | Node.js | Express | SQLite</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Conceptualized and developed a fully responsive application in 2 weeks to successfully deliver the product on time while maintaining high code quality</li>
+          <li class="list-group-item">Implemented a authentication flow that allowed users to login using third party</li>
+          <li class="list-group-item">Responsible for creating migration table, seeds, testing and endpoints for project's backend and server side functions</li>
+          <li class="list-group-item">Utilized Herokuapp and developed the backend using Node.js to handle all the routing calls</li>
+        </ul>
+        <br>
+        <a href="https://front-end-ivory-six.vercel.app/" class="card-link">Water My Plants 2020 &nbsp;&nbsp;</a>
+        <a href="https://github.com/Water-My-Plant-2020/Back-End" class="card-link">Github</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/marissa-shaffer/final-cs50p-project/main/api/static/images/anywherefitness.jpg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Anywhere Fitness</h5>
+        <p class="card-subtitle">Jan 2021 - Feb 2021</p>
+        <p class="card-text">Anywhere Fitness is a React web application that allows fitness classes to be held anywhere - a park, an unfinished basement or a garage - not just your traditional gym.</p>
+        <p class="card-text">React | Redux | Node.js | Express | SQLite</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Conceptualized and developed a fully responsive application in 2 weeks to successfully deliver the product on time while maintaining high code quality</li>
+          <li class="list-group-item">Implemented a authentication flow that allowed users to login using third party</li>
+          <li class="list-group-item">Responsible for creating migration table, seeds, testing and endpoints for project's backend and server side functions</li>
+          <li class="list-group-item">Utilized Herokuapp and developed the backend using Node.js to handle all the routing calls</li>
+        </ul>
+        <br>
+        <a href="https://anywhere-fitness-frontend-tt86.netlify.app/" class="card-link">Anywhere Fitness &nbsp;&nbsp;</a>
+        <a href="https://github.com/Anywherefitnesstt86/back-end" class="card-link">Github</a>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<br>
+<br>
 {% endblock %}

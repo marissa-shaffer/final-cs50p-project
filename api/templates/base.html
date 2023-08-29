@@ -1,82 +1,77 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <title>{% block title %} {% endblock %}</title>
-  <!--FONT AWESOME-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <title>{% block title %} {% endblock %}</title>
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
 
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="{{ url_for('index')}}">Marissa Shaffer | Web Developer</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/about">About</a>
-        <a class="nave-item nav-link" href="/projects">Projects</a>
-        <a class="nav-item nav-link" href="/contact">Contact</a>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="{{ url_for('index')}}">Marissa Shaffer | Web Developer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/about">About</a>
+          <a class="nave-item nav-link" href="/projects">Projects</a>
+          <a class="nav-item nav-link" href="/contact">Contact</a>
+        </div>
       </div>
+    </nav>
+    <div>
+      {% block content %} {% endblock %}
     </div>
-  </nav>
-  <div>
-    {% block content %} {% endblock %}
-  </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </body>
 
-<!-- Footer -->
-<footer
-class="text-center text-lg-start text-dark"
-style="background-color: #ECEFF1"
->
-<!-- Section: Social media -->
-<section
-   class="d-flex justify-content-between p-4 text-white"
-   style="background-color: #21D192"
-   >
-<!-- Left -->
-<div class="me-5">
-<span>Get connected with me on social:</span>
-</div>
-<!-- Left -->
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-dark" style="background-color: #ECEFF1">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-between p-4 text-white" style="background-color: #21D192">
+      <!-- Left -->
+      <div class="me-5">
+        <span>Get connected with me on social:</span>
+      </div>
+      <!-- Left -->
 
-<!-- Right -->
-<div>
-<a href="https://twitter.com/Riz9000" class="text-white me-4">
-<i class="fa fa-twitter">&nbsp;</i>
-</a>
-<a href="https://linkedin.com/in/marissa-shaffer/" class="text-white me-4">
-<i class="fa fa-linkedin">&nbsp;</i>
-</a>
-<a href="https://github.com/marissa-shaffer" class="text-white me-4">
-<i class="fa fa-github"></i>
-</a>
-</div>
-<!-- Right -->
-</section>
-<!-- Section: Social media -->
+      <!-- Right -->
+      <div>
+        <a href="https://twitter.com/Riz9000" class="text-white me-4">
+          <i class="fa fa-twitter">&nbsp;</i>
+        </a>
+        <a href="https://linkedin.com/in/marissa-shaffer/" class="text-white me-4">
+          <i class="fa fa-linkedin">&nbsp;</i>
+        </a>
+        <a href="https://github.com/marissa-shaffer" class="text-white me-4">
+          <i class="fa fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
 
     <!-- Section: Links  -->
     <section class="">
@@ -87,12 +82,11 @@ style="background-color: #ECEFF1"
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">Marissa Shaffer</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
-              Graphic designer and marketing professional turned web developer here. I started with digital and web design, then later wanted to learn how functionality was built. So I pushed myself to take classes, start building web applications, and haven't looked back!
+              Graphic designer and marketing professional turned web developer here. I started with digital and web
+              design, then later wanted to learn how functionality was built. So I pushed myself to take classes, start
+              building web applications, and haven't looked back!
             </p>
           </div>
           <!-- Grid column -->
@@ -101,18 +95,15 @@ style="background-color: #ECEFF1"
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold"><a style="color: #343a40" href="/projects">Projects</a></h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
               <a href="https://water-my-plants-6.netlify.app/" class="text-dark">Water My Plants</a>
             </p>
             <p>
-              <a href="https://github.com/Water-My-Plant-2020/Back-End" class="text-dark">Water My Plant 2020</a>
+              <a href="https://front-end-ivory-six.vercel.app/" class="text-dark">Water My Plants 2020</a>
             </p>
             <p>
-              <a href="https://github.com/Anywherefitnesstt86/back-end" class="text-dark">Anywhere Fitness</a>
+              <a href="https://anywhere-fitness-frontend-tt86.netlify.app/" class="text-dark">Anywhere Fitness</a>
             </p>
             </p>
           </div>
@@ -122,10 +113,7 @@ style="background-color: #ECEFF1"
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold"><a style="color: #343a40" href="/about">About</a></h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           </div>
           <!-- Grid column -->
 
@@ -133,10 +121,7 @@ style="background-color: #ECEFF1"
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p><i class="fa fa-house"></i>Minnesota, US</p>
             <p><i class="fa fa-envelope"></i><a class="text-dark" href="/contact">&nbsp;Contact Form</a></p>
           </div>
@@ -148,15 +133,12 @@ style="background-color: #ECEFF1"
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2023 Copyright:
-      <a class="text-dark">Marissa Shaffer</a
-        >
+      <a class="text-dark">Marissa Shaffer</a>
     </div>
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+
 </html>

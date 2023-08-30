@@ -4,25 +4,11 @@ from wtforms import StringField, validators, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
-from flask_mail import Mail, Message
-import smtplib
-import os
+
 
 app = Flask(__name__)
 Bootstrap(app)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
-
-username = os.environ.get('gusername')
-password = os.environ.get('gpassword')
-
-mail = Mail()
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = username
-app.config['MAIL_PASSWORD'] = password
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail.init_app(app)
 
 class contactForm(FlaskForm):
     name = StringField(label='Name', validators=[DataRequired()])
@@ -62,11 +48,6 @@ def contact():
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
 
-            msg = Message(subject=form_subject, sender=username+'@gmail.com', recipients=['marissa.shaffer1@gmail.com'])
-            msg.body = form_message
-            mail.send(msg)
-            print("Message sent!")
-            
             return render_template("contact.html", success=True)
         else:
             print('Form was unsucessful')

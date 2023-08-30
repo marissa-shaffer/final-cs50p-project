@@ -65,7 +65,8 @@ def contact():
             with smtplib.SMTP("sandbox.smtp.mailtrap.io", 2525) as server:
                 server.login(username, password)
                 server.sendmail(sender, receiver, message)
-            return render_template("contact.html", success=True)
+                print('Email sent.')
+            return render_template("contact.html", form=cform)
         else:
             print('Form was unsucessful')
             return render_template("contact.html", form=cform)

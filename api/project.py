@@ -47,7 +47,7 @@ def contact():
             subject = cform.subject.data
             form_message = cform.message.data
 
-            print(f"Name:{name}, E-mail:{email}, subject:{subject} message:{message}")
+            print(f"Name:{name}, E-mail:{email}, subject:{subject} message:{form_message}")
 
             username = os.environ['mailtrap_sandbox_username']
             password = os.environ['mailtrap_sandbox_pw']

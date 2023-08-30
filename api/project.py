@@ -51,7 +51,6 @@ def contact():
 
             username = os.environ.get('mailtrap_sandbox_username')
             password = os.environ.get('mailtrap_sandbox_pw')
-
             sender = f"{name} <{email}>"
             receiver = 'marissashaffer.dev@gmail.com'
 

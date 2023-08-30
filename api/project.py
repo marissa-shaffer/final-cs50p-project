@@ -1,9 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, validators, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -12,6 +15,7 @@ app.secret_key = "any-string-you-want-just-keep-it-secret"
 class contactForm(FlaskForm):
     name = StringField(label='Name', validators=[DataRequired()])
     email = StringField(label='Email', validators=[DataRequired(), Email(granular_message=True)])
+    subject = StringField(label='Subject')
     message = StringField(label='Message')
     submit = SubmitField(label="Submit")
 
@@ -38,8 +42,8 @@ def projects():
 def contact():
     cform = contactForm()
     if cform.validate_on_submit():
-        print(f"Name:{cform.name.data}, E-mail:{cform.email.data}, message:{cform.message.data}")
+        print(f"Name:{cform.name.data}, E-mail:{cform.email.data}, subject:{cform.subject.data} message:{cform.message.data}")
     return render_template("contact.html", form=cform)
 
 if __name__ == "__main__":
-    main()   
+    main()

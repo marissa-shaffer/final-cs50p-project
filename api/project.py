@@ -15,13 +15,14 @@ app.secret_key = "any-string-you-want-just-keep-it-secret"
 username = os.environ.get('gusername')
 password = os.environ.get('gpassword')
 
+mail = Mail()
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = username
 app.config['MAIL_PASSWORD'] = password
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
+mail.init_app(app)
 
 class contactForm(FlaskForm):
     name = StringField(label='Name', validators=[DataRequired()])

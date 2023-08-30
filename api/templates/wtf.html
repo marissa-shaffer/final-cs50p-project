@@ -7,6 +7,8 @@
     <body>
         <div class="container">
             <h1>Contact Us</h1>
+            {% if success %}
+                <p>Thank you for your message. I'll get back to you shortly.</p>
             <form method="POST" action="{{ url_for('contact') }}">
                 {{ form.csrf_token }}
 
@@ -37,6 +39,7 @@
                 </p>
                     {{ form.submit }}
             </form>
+            {% endif %}
         </div>
         <br>
     </body>

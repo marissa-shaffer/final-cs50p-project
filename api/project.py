@@ -49,11 +49,11 @@ def contact():
 
             print(f"Name:{name}, E-mail:{email}, subject:{subject} message:{form_message}")
 
-            username = os.environ.get('mailtrap_sandbox_username')
-            password = os.environ.get('mailtrap_sandbox_pw')
+            username = os.environ.get('gusername')
+            password = os.environ.get('gpassword')
 
-            sender = "Private Person <from@example.com>"
-            receiver = 'A Test User <to@example.com>'
+            sender = f"{username}@gmail.com"
+            receiver = 'marissa.shaffer1@gmail.com'
 
             message = f"""\
             Subject: {subject}
@@ -62,7 +62,7 @@ def contact():
 
             {form_message}"""
 
-            with smtplib.SMTP("sandbox.smtp.mailtrap.io", 2525) as server:
+            with smtplib.SMTP("smtp.gmail.com", 465) as server:
                 server.login(username, password)
                 server.sendmail(sender, receiver, message)
                 print('Email sent.')

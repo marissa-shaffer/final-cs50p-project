@@ -5,8 +5,7 @@ from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import os
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -41,8 +40,38 @@ def projects():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     cform = contactForm()
-    if cform.validate_on_submit():
-        print(f"Name:{cform.name.data}, E-mail:{cform.email.data}, subject:{cform.subject.data} message:{cform.message.data}")
+    if request.method == 'POST':
+        if cform.validate_on_submit() == True:
+            name = cform.name.data
+            email = cform.email.data
+            subject = cform.subject.data
+            form_message = cform.message.data
+
+            print(f"Name:{name}, E-mail:{email}, subject:{subject} message:{message}")
+
+            username = os.environ['mailtrap_sandbox_username']
+            password = os.environ['mailtrap_sandbox_pw']
+
+            sender = f"{name} <{email}>"
+            receiver = 'marissashaffer.dev@gmail.com'
+
+            message = f"""\
+            Subject: {subject}
+            To: {receiver}
+            From: {sender}
+
+            {form_message}"""
+
+            with smtplib.SMTP("sandbox.smtp.mailtrap.io", 2525) as server:
+                server.login(username, password)
+                server.sendmail(sender, receiver, message)
+            return render_template("contact.html", success=True)
+        else:
+            print('Form was unsucessful')
+            return render_template("contact.html", form=cform)
+    elif request.method == 'GET':
+        return render_template("contact.html", form=cform)
+    
     return render_template("contact.html", form=cform)
 
 if __name__ == "__main__":

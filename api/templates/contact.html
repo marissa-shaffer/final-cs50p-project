@@ -6,7 +6,7 @@
         {% if success %}
             <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
         {% else %}
-            {% with errors = get_flashed_messages(category_filter["error"]) %}
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
                 {% if errors %}
                     {% for message in form.name.errors %}
                         <div class="flash">{{ message }}</div>

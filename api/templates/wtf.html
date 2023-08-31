@@ -7,30 +7,7 @@
     <body>
         <div class="container">
             <h1>Contact Us</h1>
-                <form method="POST" action="{{ url_for('contact') }}">
-                    {{ form.csrf_token }}
-                    <p>
-                        {{ form.name.label }}
-                        <br>
-                        {{ form.name }}
-                    </p>
-                    <p>
-                        {{ form.email.label }}
-                    <br>
-                        {{ form.email(size=30) }}
-                    </p>
-                     <p>
-                        {{ form.message.label }}
-                    <br>
-                        {{ form.subject }}
-                    </p>
-                    <p>
-                        {{ form.message.label }}
-                    <br>
-                        {{ form.message }}
-                    </p>
-                        {{ form.submit }}
-                </form>
+                
         </div>
         <br>
     </body>

@@ -4,3 +4,10 @@ h1 {
     text-align: center;
     padding: 10px;
 }
+
+/* Message flashing */
+.flash {
+    background-color: #FBB0B0;
+    padding: 10px;
+    width: 400px;
+  }

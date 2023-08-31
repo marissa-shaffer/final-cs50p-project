@@ -7,51 +7,30 @@
     <body>
         <div class="container">
             <h1>Contact Us</h1>
-            {% if success %}
-                <p>Thank you for your message. I'll get back to you shortly.</p>
-            {% else %}
-                {% for message in form.name.errors %}
-                <div class="flash">{{ message }}</div>
-                {% endfor %}
-                {% for message in form.email.errors %}
-                <div class="flash">{{ message }}</div>
-                {% endfor %}
-                {% for message in form.subject.errors %}
-                <div class="flash">{{ message }}</div>
-                {% endfor %}
-                {% for message in form.message.errors %}
-                <div class="flash">{{ message }}</div>
-                {% endfor %}
                 <form method="POST" action="{{ url_for('contact') }}">
-                {{ form.csrf_token }}
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.name.label }}
+                    {{ form.csrf_token }}
+                    <p>
+                        {{ form.name.label }}
+                        <br>
+                        {{ form.name }}
+                    </p>
+                    <p>
+                        {{ form.email.label }}
                     <br>
-                    {{ form.name }}
-                </p>
-
-
-
-                <p>
-                    {{ form.email.label }}
+                        {{ form.email(size=30) }}
+                    </p>
+                     <p>
+                        {{ form.message.label }}
                     <br>
-                    {{ form.email(size=30) }}
-                </p>
-                <p>
-                    {{ form.message.label }}
+                        {{ form.subject }}
+                    </p>
+                    <p>
+                        {{ form.message.label }}
                     <br>
-                    {{ form.subject }}
-                </p>
-
-
-                <p>
-                    {{ form.message.label }}
-                    <br>
-                    {{ form.message }}
-                </p>
-                    {{ form.submit }}
-            </form>
+                        {{ form.message }}
+                    </p>
+                        {{ form.submit }}
+                </form>
             {% endif %}
         </div>
         <br>

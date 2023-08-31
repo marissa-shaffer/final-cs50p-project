@@ -31,7 +31,7 @@
             {{ form.email(size=30) }}
         </p>
         <p>
-            {{ form.message.label }}
+            {{ form.subject.label }}
             <br>
             {{ form.subject }}
         </p>
@@ -42,6 +42,7 @@
         </p>
         {{ form.submit }}
     </form>
+    <br>
 </div>
 {% endif %}
 {% endblock %}

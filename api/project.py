@@ -4,8 +4,6 @@ from wtforms import StringField, validators, PasswordField, SubmitField, TextAre
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
-import smtplib
-from email.mime.text import MIMEText
 
 app = Flask(__name__)
 Bootstrap(app)

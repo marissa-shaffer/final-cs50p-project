@@ -19,6 +19,7 @@
 {% endfor %}
 <div class="container">
     <form method="POST" action="{{ url_for('contact') }}">
+        {{ form.hidden_tag() }}
         {{ form.csrf_token }}
         <p>
             {{ form.name.label }}

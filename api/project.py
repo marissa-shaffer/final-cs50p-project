@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, PasswordField, SubmitField
+from wtforms import StringField, validators, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
@@ -15,7 +15,7 @@ class ContactForm(FlaskForm):
     name = StringField(label='Name', validators=[DataRequired(message="Please enter your name.")])
     email = StringField(label='Email', validators=[DataRequired(message="Please enter your email address."), Email(granular_message=True)])
     subject = StringField(label='Subject', validators=[DataRequired(message="Please enter a subject.")])
-    message = StringField(label='Message', validators=[DataRequired(message="Please enter a Message.")])
+    message = TextAreaField(label='Message', validators=[DataRequired(message="Please enter a Message.")])
     submit = SubmitField(label="Submit")
 
 def main():

@@ -2,47 +2,35 @@
 {% block content %}
 <br>
 <h1 class="container">{% block title %} Contact {% endblock %}</h1>
-{% if success %}
-<p>Thank you for your message. I'll get back to you shortly.</p>
-{% else %}
-{% for message in form.name.errors %}
-<div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.email.errors %}
-<div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.subject.errors %}
-<div class="flash">{{ message }}</div>
-{% endfor %}
-{% for message in form.message.errors %}
-<div class="flash">{{ message }}</div>
-{% endfor %}
 <div class="container">
-    <form method="POST" action="{{ url_for('contact') }}">
-        {{ form.hidden_tag() }}
-        {{ form.csrf_token }}
-        <p>
-            {{ form.name.label }}
-            <br>
+    {% if success %}
+    <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
+    {% else %}
+        {% for message in form.name.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.email.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.subject.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.message.errors %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <form method="POST" action="{{ url_for('contact') }}">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            {{ form.name.label }} 
             {{ form.name }}
-        </p>
-        <p>
             {{ form.email.label }}
-            <br>
-            {{ form.email(size=30) }}
-        </p>
-        <p>
+            {{ form.email }}
             {{ form.subject.label }}
-            <br>
             {{ form.subject }}
-        </p>
-        <p>
             {{ form.message.label }}
-            <br>
             {{ form.message }}
-        </p>
-        {{ form.submit }}
-    </form>
+            {{ form.submit }}
+        </form>
     <br>
 </div>
 {% endif %}

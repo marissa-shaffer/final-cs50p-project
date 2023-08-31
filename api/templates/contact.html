@@ -5,8 +5,7 @@
     <div class="container">
         {% if success %}
             <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
-        {% endif %}
-        {% if errors %}
+        {% else %}
             {% for message in form.name.errors %}
                 <div class="flash">{{ message }}</div>
             {% endfor %}
@@ -19,7 +18,6 @@
             {% for message in form.message.errors %}
                 <div class="flash">{{ message }}</div>
             {% endfor %}
-        {% endif %}
             <form method="POST" action="{{ url_for('contact') }}">
                 {{ form.hidden_tag() }}
                 {{ form.csrf_token }}
@@ -33,6 +31,7 @@
                 {{ form.message }}
                 {{ form.submit }}
         </form>
+        {% endif %}
         <br>
     </div>
 {% endblock %}

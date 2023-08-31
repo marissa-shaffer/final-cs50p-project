@@ -1,11 +1,30 @@
-{% extends 'base.html' %}
-{% block content %}
-<br>
-<h1 class="container">{% block title %} Contact {% endblock %}</h1>
-<div class="container">
-    {% if success %}
-    <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
-    {% else %}
+<!doctype html>
+<html lang="en">
+    {% extends 'base.html' %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>{% block title %} {% endblock %}</title>
+        <!--FONT AWESOME-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--Custom Styling-->
+        <link rel="stylesheet" href="/api/static/css/style.css">
+    </head>
+
+    {% block content %}
+    <br>
+    <h1 class="container">{% block title %} Contact {% endblock %}</h1>
+    <div class="container">
+        {% if success %}
+            <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
+        {% else %}
         {% for message in form.name.errors %}
             <div class="flash">{{ message }}</div>
         {% endfor %}
@@ -16,12 +35,12 @@
             <div class="flash">{{ message }}</div>
         {% endfor %}
         {% for message in form.message.errors %}
-        <div class="flash">{{ message }}</div>
+            <div class="flash">{{ message }}</div>
         {% endfor %}
         <form method="POST" action="{{ url_for('contact') }}">
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
-            {{ form.name.label }} 
+            {{ form.name.label }}
             {{ form.name }}
             {{ form.email.label }}
             {{ form.email }}
@@ -31,7 +50,9 @@
             {{ form.message }}
             {{ form.submit }}
         </form>
-    <br>
-</div>
-{% endif %}
-{% endblock %}
+        <br>
+    </div>
+    {% endif %}
+    {% endblock %}
+
+</html>

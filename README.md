@@ -6,6 +6,7 @@
   * Flask-WTF
   * WTF Forms
   * Flask Bootstrap
+  * SendGrid
   * Pytest
 * HTML
 * CSS

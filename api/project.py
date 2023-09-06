@@ -4,6 +4,9 @@ from wtforms import StringField, validators, PasswordField, SubmitField, TextAre
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -46,6 +49,23 @@ def contact():
             form_message = cform.message.data
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
+
+            api_key = os.environ.get('SG_API_KEY')
+
+            message = Mail(
+                from_email='marissashaffer.dev@gmail.com',
+                to_emails='marissa.shaffer1@gmail.com',
+                subject=form_subject,
+                plain_text_content=form_message)
+            
+            try:
+                sg = SendGridAPIClient(api_key)
+                response = sg.send(message)
+                print(response.status_code)
+                print(response.body)
+                print(response.headers)
+            except Exception as e:
+                print(e.message)
 
             return render_template("contact.html", success=True)
         elif cform.validate() == False:

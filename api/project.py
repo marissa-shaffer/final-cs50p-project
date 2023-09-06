@@ -56,7 +56,7 @@ def contact():
                 from_email='marissashaffer.dev@gmail.com',
                 to_emails='marissa.shaffer1@gmail.com',
                 subject=form_subject,
-                plain_text_content=form_message)
+                plain_text_content=f'{form_message} from {form_name} at {form_email}')
             
             try:
                 sg = SendGridAPIClient(api_key)

@@ -4,8 +4,6 @@ from wtforms import StringField, validators, PasswordField, SubmitField, TextAre
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
-import requests as req
-import os
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -48,18 +46,6 @@ def contact():
             form_message = cform.message.data
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
-
-            userId = os.environ.get('USER_ID')
-            apiKey = os.environ.get('API_KEY')
-            url = f'https://gmail.googleapis.com/upload/gmail/v1/users/{userId}/messages/send&key={apiKey}'
-            body = {
-                "raw": f'{form_message} from {form_name} {form_email}'
-            }
-    
-            response = req.post(url=url, data=body)
-            print(response)
-            results = response.json()
-            print(results)
 
             return render_template("contact.html", success=True)
         elif cform.validate() == False:

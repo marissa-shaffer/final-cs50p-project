@@ -54,7 +54,7 @@ def contact():
 
             message = Mail(
                 from_email='marissashaffer.dev@gmail.com',
-                to_emails='marissa.shaffer1@gmail.com',
+                to_emails='marissashaffer.dev@gmail.com',
                 subject=form_subject,
                 plain_text_content=f'{form_message} from {form_name} at {form_email}')
             

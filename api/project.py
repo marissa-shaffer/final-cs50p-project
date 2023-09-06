@@ -4,7 +4,7 @@ from wtforms import StringField, validators, PasswordField, SubmitField, TextAre
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
 import email_validator
-import requests
+import requests as req
 import os
 
 app = Flask(__name__)
@@ -56,7 +56,10 @@ def contact():
                 "raw": f'{form_message} from {form_name} {form_email}'
             }
     
-            requests.post(url=url, data=body)
+            response = req.post(url=url, data=body)
+            print(response)
+            results = response.json()
+            print(results)
 
             return render_template("contact.html", success=True)
         elif cform.validate() == False:

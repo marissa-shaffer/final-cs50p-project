@@ -5,3 +5,4 @@ WTForms==3.0.1
 Flask-Bootstrap==3.3.7.1
 sendgrid==6.10.0
 Werkzeug==2.2.2
+google-recaptcha==2.0.1

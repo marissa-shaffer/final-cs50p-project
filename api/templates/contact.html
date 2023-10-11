@@ -30,9 +30,9 @@
                 {{ form.message.label }}
                 {{ form.message }}
                 {% for error in form.recaptcha.errors %}
-                    {{ error }}
+                    <div class="flash">{{ error }}</div>
                 {% endfor %}
-                {{ form.recaptcha }}
+                <div id="g-recaptcha">{{ form.recaptcha }}</div>
                 {{ form.submit }}
         </form>
         {% endif %}

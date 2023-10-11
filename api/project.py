@@ -51,12 +51,12 @@ def projects():
 def contact():
     cform = ContactForm()
     if request.method == 'POST':
-        if cform.validate() == True:
+        if cform.validate_on_submit() == True:
             form_name = cform.name.data
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
-            grecaptcha = cform.recaptcha.data
+            grecaptcha = cform.recaptcha
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
             print('Recaptcha has succeeded')
@@ -80,7 +80,7 @@ def contact():
                 print(e.message)
 
             return render_template("contact.html", success=True)
-        elif cform.validate() == False:
+        elif cform.validate_on_submit() == False:
             flash('All fields are required.')
             return render_template("contact.html", form=cform)
     elif request.method == 'GET':

@@ -66,6 +66,8 @@ form label {
     background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
   }
   .g-recaptcha{
-    justify-content: left;
+    justify-content: left!important;
   }
-  
+  .justify-content-center{
+    justify-content: left!important;
+  }

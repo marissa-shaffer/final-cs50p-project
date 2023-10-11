@@ -83,6 +83,7 @@ def contact():
             flash('All fields are required.')
             return render_template("contact.html", form=cform)
         elif cform.recaptcha.verify() == False:
+            flash('Recaptcha has Failed, try again.')
             print('Recaptcha has Failed')
     elif request.method == 'GET':
         return render_template("contact.html", form=cform)

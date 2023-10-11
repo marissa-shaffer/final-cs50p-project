@@ -7,10 +7,16 @@ import email_validator
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+from google_recaptcha import ReCaptcha
+
+siteKey = os.environ.get('RECAPTCHA_SITE_KEY')
+siteSecretKey = os.environ.get('RECAPTCHA_SECRET_KEY')
+appSecretKey = os.environ.get('APP_KEY')
 
 app = Flask(__name__)
 Bootstrap(app)
-app.secret_key = "any-string-you-want-just-keep-it-secret"
+app.secret_key = appSecretKey
+recaptcha = ReCaptcha(app, version=2, site_key=siteKey, site_secret=siteSecretKey)
 
 class ContactForm(FlaskForm):
     name = StringField(label='Name', validators=[DataRequired(message="Please enter your name.")])
@@ -42,13 +48,14 @@ def projects():
 def contact():
     cform = ContactForm()
     if request.method == 'POST':
-        if cform.validate() == True:
+        if cform.validate() == True and recaptcha.verify():
             form_name = cform.name.data
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
+            print('Recaptcha has succeeded')
 
             api_key = os.environ.get('SG_API_KEY')
 
@@ -71,6 +78,8 @@ def contact():
         elif cform.validate() == False:
             flash('All fields are required.')
             return render_template("contact.html", form=cform)
+        elif recaptcha.verify() == False:
+            print('Recaptcha has Failed')
     elif request.method == 'GET':
         return render_template("contact.html", form=cform)
     

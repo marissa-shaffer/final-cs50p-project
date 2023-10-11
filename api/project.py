@@ -9,6 +9,7 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from google_recaptcha import ReCaptcha
+import requests
 
 appSecretKey = os.environ.get('APP_KEY')
 
@@ -76,6 +77,10 @@ def contact():
                 print(response.status_code)
                 print(response.body)
                 print(response.headers)
+
+                gUrl = f'https://www.google.com/recaptcha/api/siteverify?secret={RECAPTCHA_PRIVATE_KEY}&response={grecaptcha}'
+                gResponse = requests.post(url=gUrl)
+                print(gResponse)
             except Exception as e:
                 print(e.message)
 

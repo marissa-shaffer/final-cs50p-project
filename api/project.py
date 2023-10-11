@@ -80,7 +80,7 @@ def contact():
 
                 gUrl = f'https://www.google.com/recaptcha/api/siteverify?secret={RECAPTCHA_PRIVATE_KEY}&response={grecaptcha}'
                 gResponse = requests.post(url=gUrl)
-                print(gResponse.json)
+                print(gResponse)
             except Exception as e:
                 print(e.message)
 

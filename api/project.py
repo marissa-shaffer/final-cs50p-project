@@ -55,7 +55,7 @@ def contact():
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
-            grecaptcha = cform.recaptcha
+            grecaptcha = cform.recaptcha.verify().data
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
             print('Recaptcha has succeeded')

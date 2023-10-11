@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash
-from flask_wtf import FlaskForm, RecaptchaField, Recaptcha
+from flask_wtf import FlaskForm
+from flask_wtf.recaptcha import RecaptchaField
 from wtforms import StringField, validators, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap

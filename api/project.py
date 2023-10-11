@@ -8,7 +8,6 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from google_recaptcha import ReCaptcha
-import requests
 
 siteKey = os.environ.get('RECAPTCHA_SITE_KEY')
 siteSecretKey = os.environ.get('RECAPTCHA_SECRET_KEY')

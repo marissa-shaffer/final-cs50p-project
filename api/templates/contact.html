@@ -7,16 +7,16 @@
             <p style="text-align: center;">Thank you for your message. I'll get back to you shortly.</p>
         {% else %}
             {% for message in form.name.errors %}
-                <div class="flash">{{ message }}</div>
+                <div class="flash">{{ error }}</div>
             {% endfor %}
             {% for message in form.email.errors %}
-                <div class="flash">{{ message }}</div>
+                <div class="flash">{{ error }}</div>
             {% endfor %}
             {% for message in form.subject.errors %}
-                <div class="flash">{{ message }}</div>
+                <div class="flash">{{ error }}</div>
             {% endfor %}
             {% for message in form.message.errors %}
-                <div class="flash">{{ message }}</div>
+                <div class="flash">{{ error }}</div>
             {% endfor %}
             <form method="POST" action="{{ url_for('contact') }}">
                 {{ form.hidden_tag() }}
@@ -29,10 +29,10 @@
                 {{ form.subject }}
                 {{ form.message.label }}
                 {{ form.message }}
-                {% for error in form.recaptcha.errors %}
+                {% for error in form.grecaptcha.errors %}
                     <div class="flash">{{ error }}</div>
                 {% endfor %}
-                <div id="g-recaptcha">{{ form.recaptcha }}</div>
+                <div id="g-recaptcha">{{ form.grecaptcha }}</div>
                 {{ form.submit }}
         </form>
         {% endif %}

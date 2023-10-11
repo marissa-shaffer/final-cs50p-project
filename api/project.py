@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 from flask_wtf import FlaskForm
-from flask_wtf.recaptcha import RecaptchaField
+from flask_wtf.recaptcha import RecaptchaField, Recaptcha
 from wtforms import StringField, validators, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from flask_bootstrap import Bootstrap
@@ -25,7 +25,7 @@ class ContactForm(FlaskForm):
     email = StringField(label='Email', validators=[DataRequired(message="Please enter your email address."), Email(granular_message=True)])
     subject = StringField(label='Subject', validators=[DataRequired(message="Please enter a subject.")])
     message = TextAreaField(label='Message', validators=[DataRequired(message="Please enter a Message.")])
-    recaptcha = RecaptchaField()
+    grecaptcha = RecaptchaField()
     submit = SubmitField(label="Submit")
 
 def main():
@@ -56,7 +56,7 @@ def contact():
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
-            grecaptcha = cform.recaptcha
+            grecaptcha = request.json["g-recaptcha-repsonse"]
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
             print('Recaptcha has succeeded')

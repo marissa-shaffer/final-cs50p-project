@@ -71,3 +71,6 @@ form label {
   .justify-content-center{
     justify-content: left!important;
   }
+  #g-recaptcha{
+    justify-content: left!important;
+  }

@@ -18,6 +18,7 @@ RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_SITE_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_SECRET_KEY')
 
 app = Flask(__name__)
+app.config.from_object(__name__)
 Bootstrap(app)
 app.secret_key = appSecretKey
 #recaptcha = ReCaptcha(app, version=2, site_key=siteKey, site_secret=siteSecretKey)

@@ -55,11 +55,11 @@ def contact():
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
-            recaptchaCode = cform.recaptcha.generate_code()
+            grecaptcha = cform.recaptcha
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
             print('Recaptcha has succeeded')
-            print(recaptchaCode)
+            print(grecaptcha)
 
             api_key = os.environ.get('SG_API_KEY')
 

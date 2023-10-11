@@ -8,6 +8,7 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from google_recaptcha import ReCaptcha
+import requests
 
 siteKey = os.environ.get('RECAPTCHA_SITE_KEY')
 siteSecretKey = os.environ.get('RECAPTCHA_SECRET_KEY')
@@ -49,14 +50,16 @@ def projects():
 def contact():
     cform = ContactForm()
     if request.method == 'POST':
-        if cform.validate() == True and recaptcha.verify() == True:
+        if cform.validate() == True and cform.recaptcha.verify() == True:
             form_name = cform.name.data
             form_email = cform.email.data
             form_subject = cform.subject.data
             form_message = cform.message.data
+            recaptchaCode = cform.recaptcha.generate_code()
 
             print(f"Name:{form_name}, E-mail:{form_email}, subject:{form_subject} message:{form_message}")
             print('Recaptcha has succeeded')
+            print(recaptchaCode)
 
             api_key = os.environ.get('SG_API_KEY')
 
@@ -79,7 +82,7 @@ def contact():
         elif cform.validate() == False:
             flash('All fields are required.')
             return render_template("contact.html", form=cform)
-        elif recaptcha.verify() == False:
+        elif cform.recaptcha.verify() == False:
             print('Recaptcha has Failed')
     elif request.method == 'GET':
         return render_template("contact.html", form=cform)

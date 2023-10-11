@@ -29,8 +29,8 @@
                 {{ form.subject }}
                 {{ form.message.label }}
                 {{ form.message }}
-                {{ recaptcha }}
-                <iframe style="text-align: left;">{{ form.submit }}</iframe>
+                <iframe style="text-align: left;">{{ recaptcha }}</iframe>
+                {{ form.submit }}
         </form>
         {% endif %}
         <br>

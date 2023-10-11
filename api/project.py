@@ -23,6 +23,7 @@ class ContactForm(FlaskForm):
     email = StringField(label='Email', validators=[DataRequired(message="Please enter your email address."), Email(granular_message=True)])
     subject = StringField(label='Subject', validators=[DataRequired(message="Please enter a subject.")])
     message = TextAreaField(label='Message', validators=[DataRequired(message="Please enter a Message.")])
+    recaptcha = recaptcha
     submit = SubmitField(label="Submit")
 
 def main():
@@ -48,7 +49,7 @@ def projects():
 def contact():
     cform = ContactForm()
     if request.method == 'POST':
-        if cform.validate() == True and recaptcha.verify():
+        if cform.validate() == True and recaptcha.verify() == True:
             form_name = cform.name.data
             form_email = cform.email.data
             form_subject = cform.subject.data
